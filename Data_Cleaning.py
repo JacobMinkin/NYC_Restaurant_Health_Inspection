@@ -7,7 +7,7 @@ import geopandas as gpd
 
 #Import Data
 df = pd.read_csv('../data/Inspection.csv')
-df.set_index('CAMIS')
+
 #Change Name of Column for easier searching
 df.rename(columns = {'VIOLATION CODE':'CODE'}, inplace = True)
 
