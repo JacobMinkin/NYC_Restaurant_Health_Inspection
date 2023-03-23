@@ -1,3 +1,11 @@
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import geopandas as gpd
+sns.set_style('darkgrid')
+
 #Import Data
 df = pd.read_csv('../data/Inspection.csv')
 
@@ -15,8 +23,16 @@ for name in code_list:
 
 Name_list = df.CAMIS[df.CAMIS.isna() == False].unique()
 Name_dicts = {}
+latest_inspection_dicts = {}
+
 for name in Name_list:
     Name_dicts[name] = df.DBA[df.CAMIS == name].unique()
+    latest_inspection_dicts[name] = df[df.CAMIS == name].date.max()
+
+# Making new variables first is Latest inspection date and second is a dummy variable that keeps True if it is the latest inspection
+df.Latest_Inspection = df.CAMIS.map(latest_inspection_dicts)
+df['isLatest'] = pd.to_datetime(df['INSPECTION DATE']) == df.Latest_Inspection
+df['LatestandCrit'] = df['isLatest'] ==True and df['isLatest']
 
 #Choose variables for final analysis
 finalVariables = ['CAMIS','CUISINE','STREET', 'ZIPCODE', 'Community Board', 'BBL', 'BORO', 'date', 'CRITICAL FLAG']
