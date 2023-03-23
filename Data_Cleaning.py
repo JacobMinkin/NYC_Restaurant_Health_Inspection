@@ -15,7 +15,7 @@ df.rename(columns = {'VIOLATION CODE':'CODE'}, inplace = True)
 df.rename(columns = {'Community Board':'CBoard'}, inplace = True)
 # Convert date into pandas date/time format
 df['date'] = pd.to_datetime(df['INSPECTION DATE'])
-to_convert = ['ZIPCODE', 'CBoard']
+to_convert = ['ZIPCODE', 'CBoard', 'CUISINE']
 df[to_convert] = df[to_convert].astype('category')
 
 # Create Dictionaries for Violation Codes and Resteraunt Names
@@ -78,3 +78,4 @@ final_df[to_convert] = final_df[to_convert].astype('category')
 final_df = final_df.drop(final_df[final_df.date== '1900-01-01'].index)
 final_df = final_df[finalVariables]
 
+final_df.to_csv('Final_Data_Frame.csv', index = True)
