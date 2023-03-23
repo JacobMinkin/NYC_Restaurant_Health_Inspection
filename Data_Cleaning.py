@@ -30,17 +30,25 @@ for name in Name_list:
     latest_inspection_dicts[name] = df[df.CAMIS == name].date.max()
 
 # Making new variables first is Latest inspection date and second is a dummy variable that keeps True if it is the latest inspection
-df.Latest_Inspection = df.CAMIS.map(latest_inspection_dicts)
+df['Latest_Inspection'] = df.CAMIS.map(latest_inspection_dicts)
 df['isLatest'] = pd.to_datetime(df['INSPECTION DATE']) == df.Latest_Inspection
-df['LatestandCrit'] = df['isLatest'] ==True and df['isLatest']
+df['Critical'] = np.where(df['CRITICAL FLAG'] == 'Critical', 1, 0)
+df['LatestandCrit'] = (df.Critical==1)  & (df.isLatest ==True )
+df['PreviousCrit'] = (df.Critical==1)  & (df.isLatest ==False )
 
-#Choose variables for final analysis
-finalVariables = ['CAMIS','CUISINE','STREET', 'ZIPCODE', 'Community Board', 'BBL', 'BORO', 'date', 'CRITICAL FLAG']
-fdf = df[finalVariables]
+pastCrit = {}
+nowCrit = {}
+for name in Name_list:
+    pastCrit[name] = df.PreviousCrit[df.CAMIS == name].max()
+    nowCrit[name] = df.LatestandCrit[df.CAMIS == name].max()
 
-# df = df.drop(['Zip Codes', 'City Council Districts', 'Police Precincts', 'Location Point', 'Community Districts', 
-#    'Borough Boundaries',  'GRADE DATE', 'PHONE', 'INSPECTION DATE', 'DBA', 'VIOLATION', 'RECORD DATE'], axis = 1)
+df['Past_Crit'] = df.CAMIS.map(pastCrit)
+df['Now_Crit'] = df.CAMIS.map(nowCrit)
 
-# List of CONVERSION to categorical functions. 
+#Now its time to make the final data set 
+final_df = df[df.isLatest == True].groupby('CAMIS').first()
+finalVariables = ['Now_Crit','CUISINE', 'BORO', 'ZIPCODE', 'Community Board', 'Past_Crit']
 to_convert = ['ZIPCODE', 'Community Board']
-fdf[to_convert] = fdf[to_convert].astype('category')
+final_df[to_convert] = final_df[to_convert].astype('category')
+final_df = final_df.drop(final_df[final_df.date== '1900-01-01'].index)
+final_df = final_df[finalVariables]
