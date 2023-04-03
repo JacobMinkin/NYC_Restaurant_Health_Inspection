@@ -27,10 +27,11 @@ for name in code_list:
 Name_list = df.CAMIS.unique()
 Name_dicts = {}
 latest_inspection_dicts = {}
-
+#score_dicts = {}
 for name in Name_list:
     Name_dicts[name] = df.DBA[df.CAMIS == name].unique()
     latest_inspection_dicts[name] = df[df.CAMIS == name].date.max()
+    #score_dicts [name] = df[df.CAMIS == name].SCORE.max()
 
 #Imputing Time: I had to seperate the imputations for better results
 impute_variables_1 = ['CAMIS', 'CBoard', 'Longitude', 'Latitude']
@@ -56,6 +57,7 @@ df['ZIPCODE'] = df.CAMIS.map(ZIPCODE_Imputed)
 
 # Making new variables first is Latest inspection date and second is a dummy variable that keeps True if it is the latest inspection
 df['Latest_Inspection'] = df.CAMIS.map(latest_inspection_dicts)
+#df['Max_Score'] = df.CAMIS.map(score_dicts.max())
 df['isLatest'] = pd.to_datetime(df['INSPECTION DATE']) == df.Latest_Inspection
 df['Critical'] = np.where(df['CRITICAL FLAG'] == 'Critical', 1, 0)
 df['LatestandCrit'] = (df.Critical==1)  & (df.isLatest ==True )
