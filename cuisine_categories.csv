@@ -1,0 +1,84 @@
+CUISINE,count,SCORE,Subgroup
+American,2336,12.02184154,American
+Coffee/Tea,863,10.29316338,Coffee/Tea/Donuts
+Italian,520,13.27307692,Mediterranean
+Japanese,440,14.16818182,East Asian
+Chinese,433,16.36951501,East Asian
+Pizza,415,14.25060241,Pizza
+Mexican,247,14.70850202,Mexican
+Bakery Products/Desserts,234,12.95299145,Bakery
+French,214,13.76635514,Mediterranean
+Asian/Asian Fusion,177,13.89830508,East Asian
+Sandwiches,168,13.42261905,Sandwhich
+Latin American,161,17.1552795,Latin American
+Donuts,159,10.04402516,Coffee/Tea/Donuts
+"Juice, Smoothies, Fruit Salads",154,12.35064935,Other
+Other,153,12.06535948,Other
+Mediterranean,136,14.80147059,Mediterranean
+Thai,135,16.27407407,East Asian
+Chicken,134,12.58955224,Meat
+Tex-Mex,130,10.10769231,Mexican
+Hamburgers,129,10.82170543,Meat
+Indian,127,17.23622047,South Asian
+Korean,114,14.14035088,East Asian
+Spanish,111,15.31531532,Mediterranean
+Frozen Desserts,106,11.11320755,Ice Cream
+Irish,102,13.61764706,European
+Seafood,102,14.48039216,Seafood
+Salads,78,10.25641026,Salad
+Jewish/Kosher,69,15.15942029,Other
+Sandwiches/Salads/Mixed Buffet,64,12.546875,Sandwhich
+Bagels/Pretzels,60,12.25,Bakery
+Bottled Beverages,59,9.627118644,Bevereges
+Steakhouse,56,14.55357143,Meat
+Greek,52,12.42307692,Mediterranean
+Soups/Salads/Sandwiches,47,8,Salad
+Caribbean,43,14.53488372,Island
+Middle Eastern,42,11.57142857,Middle Eastern
+Vegetarian,41,11.43902439,Salad
+Vegan,37,16.94594595,Other
+Southeast Asian,32,18.34375,East Asian
+Barbecue,25,12.96,Meat
+Tapas,22,14,East Asian
+Continental,20,9.65,Bevereges
+Turkish,20,10.85,Middle Eastern
+African,20,17.65,Other
+Hawaiian,19,12.10526316,Island
+Eastern European,18,10.61111111,European
+Hotdogs/Pretzels,17,9,Meat
+Chinese/Japanese,16,19.25,East Asian
+Hotdogs,15,8.133333333,Meat
+Australian,15,12.2,Island
+Peruvian,15,16.86666667,Other
+New American,14,11.85714286,American
+Soul Food,13,16,Other
+Ethiopian,12,12.83333333,Mediterranean
+Russian,11,17,Eastern European
+German,10,12.6,European
+Brazilian,10,14.3,Other
+Nuts/Confectionary,9,5,Coffee/Tea/Donuts
+Chinese/Cuban,9,13.88888889,East Asian
+English,9,20.88888889,Other
+Fusion,8,15.625,Other
+Soups,7,10.57142857,Salad
+Pakistani,6,11.16666667,South Asian
+Not Listed/Not Applicable,6,13.5,Other
+Scandinavian,5,9.2,European
+Egyptian,5,12.4,Mediterranean
+Filipino,5,16,East Asian
+Pancakes/Waffles,5,19.6,Other
+Portuguese,4,8,Mediterranean
+Polish,4,10.75,Eastern European
+Afghan,4,16.75,Other
+Moroccan,4,18.25,Mediterranean
+Lebanese,3,11,Mediterranean
+Fruits/Vegetables,3,17.66666667,Other
+Armenian,2,5.5,Middle Eastern
+Creole,2,7.5,Mediterranean
+Bangladeshi,2,14.5,South Asian
+Creole/Cajun,2,15.5,Other
+Indonesian,2,16.5,Other
+Californian,2,23.5,Other
+Iranian,1,11,Middle Eastern
+Basque,1,18,Other
+New French,1,40,Other
